@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="counter">
+        <p> Counter: {{ counter }} </p>
+       <p> Pseudo: {{pseudo}}</p>
+    </nav>
+
+    <div class="container">
+        <div id="product">
+            <h2>{{title}}</h2>
+            <img :src="src" alt="">
+            <p>description : {{description}}</p>
+            <button id="plus" v-on:click="quantityPlus">+</button>
+            <span>{{quantity}}</span>
+            <button id="moins" v-on:click="quantityMoins">-</button>
+            
+            <span>{{price}} €</span>
+            <p>{{total}}</p>
+        </div>
+    </div>
+
+
+      <script src="https://unpkg.com/vue@next"></script>
+      <script>
+        const Counter = {
+        data() {
+            return {
+            counter: 0,
+            pseudo: "Charline"
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+        }, 1000)
+        }
+        }
+
+        Vue.createApp(Counter).mount('#counter')
+
+
+        const Product = {
+
+            data(){
+                return{
+                    title:"coucou",
+                    description: "grdsikgjklqregjqrzi%h irzqhgihRZKGHBEZKGBNKLRBNKKRJGF",
+                    price:5,
+                    src:"krita.png",
+                    quantity: 0
+                }
+            },
+            mounted(){
+               total =0;
+            },
+          
+            methods: {
+                quantityPlus(){
+                    this.quantity++
+                    if(this.quantity != 0){
+                        this.total = this.quantity*this.price;
+                    }
+                   
+                   
+                  
+                },
+
+                quantityMoins(){
+                    this.quantity--
+                    if(this.quantity <0){
+                        this.quantity = 0;
+                    }
+                    return this.quantity
+                }
+            }
+        }
+
+        Vue.createApp(Product).mount('#product')
+      </script>
+
+
+
+</body>
+</html>

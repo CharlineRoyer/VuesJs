@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 5vh;
+}
+
+#counter{
+    display: flex;
+    justify-content:space-around;
+    background-color: rgb(29, 27, 27);
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 5vh;
+}
+
+#counter p {
+    justify-items: center;
+    vertical-align: middle;
+}
+
+
+
+.container{
+    width: 80%;
+    margin: 2em auto;
+    background-color: azure;
+    display: flex;
+}
+#product{
+    width: 30%;
+    background-color: wheat;
+
+}
+
+#product img{
+    width: 50px;
+}
